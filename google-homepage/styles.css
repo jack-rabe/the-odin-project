@@ -1,35 +1,38 @@
-
-
-#logo {
-    position: relative;
+#logo { /* The large Google logo in the center of the screen */
     display: block;
     margin-left: auto;
     margin-right: auto;
-    top: 225px;
+    position: relative;
+    top: 125px;
   }
 
-  #search-form {
+  #search-form { /* The search bar and two buttons beneath it */
     display: flex;
     flex-direction: column;
-    position: relative;
     text-align: center;
-    top: 250px;
+    position: relative;
+    top: 150px;
   }
 
-  #form-buttons {
+  #form-buttons { /* The container for the "Google Search" and "I'm feeling lucky" buttons */
       display: flex;
       flex-direction: row;
       margin-left: auto;
       margin-right: auto;
   }
 
-  .form-button {
+  .form-button { /* The "Google Search" and "I'm feeling lucky" buttons */
       width: 120px;
       height: 40px;
       margin: 20px;
       border-radius: 3px;
       border-width: 0px;
+      background-color: #f8f9fa;
   }
+
+  .form-button:hover {
+    border-width: 1px;
+}
 
   #search-bar {
     width: 25%;
@@ -40,30 +43,44 @@
     border-color: gray;
     border-width: 1px;
     box-shadow: none;
-  }
 
-  .form-button:hover {
-      box-shadow: 5px 5px 5px black;
+    display: block; /* temp fix */
   }
 
   #search-bar:focus {
     border-width: 0px;
   }
 
-  a{
-      text-decoration: none;
-      color: black;
-      margin: 5px;
-  }
-  a:hover{
-      text-decoration: underline;
-  }
+.material-icons {  /* The icons on top of the search bar */
+  position: relative; /* temp fix */
+  bottom: 30px;
+}
 
-  #left-nav {
-    text-align: left;
-    margin: 25px;
-  }
 
-  #right-nav {
-    text-align: right;
+#left-nav { /* The "About" and "Store" links */
+  margin: 25px;
+  float: left;
+}
+
+#right-nav { /* The "Gmail" + Images links, waffle image, and sign in button" */
+  margin: 25px;
+  float: right;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { /* The links found in the navbar */
+  text-decoration: none;
+  color: black;
+  margin: 5px;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+li{  /* The elements contained in the navbar */
+  float: left;
+  display: inline;
+  margin: 15px;
 }

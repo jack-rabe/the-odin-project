@@ -10,24 +10,29 @@
 
 <body>
     <nav>
-        <div id="left-nav">
-            <a href="">About</a>
-            <a href="">Store</a>
-        </div>
-        <div id="right-nav">
-            <a href="">Gmail</a>
-            <a href="">Images</a>
-            <img src="" alt="waffle">
-            <button>Sign In</button>
-        </div>
+        <ul>
+            <span id="left-nav">
+                <li><a href="">About</a></li>
+                <li><a href="">Store</a></li>
+            </span>
+            <span id="right-nav">
+                <li><a href="">Gmail</a></li>
+                <li><a href="">Images</a></li>
+                <li><img src="" alt="waffle"></li>
+                <li><button>Sign In</button></li>
+            </span>
+        </ul>
     </nav>
 
     <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo">
 
     <form id="search-form">
-        <input type="text" id="search-bar"></input>
-        <span class="material-icons">search</span>
-        <span class="material-icons">mic</span>
+        <div id="bar-mic-glass">
+            <input type="text" id="search-bar">
+                <span class="material-icons">search</span>
+                <span class="material-icons">mic</span>
+            </input>
+        </div>
         <div id="form-buttons">
             <button class="form-button">Google Search</button>
             <button class="form-button">I'm Feeling Lucky</button>
