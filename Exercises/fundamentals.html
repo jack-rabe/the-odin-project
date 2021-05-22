@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // // part 1
+    // // Your JavaScript goes here!
+    // console.log("Hello, World!")
+    // console.log(1 + 5);
+    // console.log((4 + 6 + 9) / 77);
+    // let a = 10;
+    // console.log(a);
+    // let b = 7 * a;
+    // console.log(b);
+    // const max = 57;
+    // const actual = max - 13;
+    // let percent = actual / max;
+    // console.log(percent);
+
+    // // method call on primitive
+    // percent = percent.toFixed(2);
+    // console.log(percent);
+
+    // // unary operator
+    // let string = "57"
+    // const stringAsNum = +string;
+    // console.log(stringAsNum + 3);
+
+    // part 3
+// Write a function called add7 that takes one number and returns that number + 7.
+function add7(num){
+  return num + 7;
+}
+// Write a function called multiply that takes 2 numbers and returns their product.
+function multiply(num1, num2){
+  return num1 * num2;
+}
+// Write a function called capitalize that takes a string and returns that string with only the first letter capitalized. Make sure that it can take strings that are lowercase, UPPERCASE or BoTh.
+const capitalize = (string) => {
+  string = string.toLowerCase();
+  string = string[0].toUpperCase() + string.substring(1);
+  return string;
+}
+// Write a function called lastLetter that takes a string and returns the very last letter of that string:
+// lastLetter("abcd") should return "d"
+function lastLetter(string) {
+  return string.charAt(string.length - 1);
+}
+
+console.log(add7(3));
+console.log(multiply(7, 5));
+console.log(capitalize("jACkiE"));
+console.log(lastLetter("running"));
+    </script>
+</body>
+</html>
