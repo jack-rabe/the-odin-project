@@ -29,14 +29,14 @@ function playRound(computerSelection, playerSelection){  // returns a string dec
             if (playerSelection === "paper"){ return 'You win: Paper beats Rock'; }
             else{
                 return 'You lose: Rock beats Scissors';
-            }
+     }
         case "paper":
             if (playerSelection === "scissors"){
-                return 'You win: Scissors beats Paper';
+         return 'You win: Scissors beats Paper';
             }
             else{
-                return 'You lose: Paper beats Rock';
-            }
+                return 'You lose: Paper beats Rock';          
+                }
         case "scissors":
            if (playerSelection === "rock"){
                return 'You win: Rock beats Scissors';
