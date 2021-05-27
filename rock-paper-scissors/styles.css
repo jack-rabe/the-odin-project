@@ -1,0 +1,34 @@
+#button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    border-width:1px;
+    border-color: black;
+    background-color: blue;
+    color: orange;
+    font-size: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    padding: 2px 8px 2px 8px;
+}
+
+#results {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 24px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+}
+
+#results > span{
+    margin: 35px;
+    padding: 5px;
+    border-width: 3px;
+    border-style: solid;
+}
+
+#last-game {
+    display: inline-block !important;
+    margin: 50px 0px 100px 0px !important;
+}

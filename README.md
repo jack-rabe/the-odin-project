@@ -4,7 +4,7 @@
 
 # Foundation Projects:
 - [X] Google Homepage
-- [ ] Rock Paper Scissors
+- [X] Rock Paper Scissors
 - [ ] Etch-a-Sketch
 - [ ] Calculator
 

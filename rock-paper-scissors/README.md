@@ -1,3 +1,4 @@
 # Rock Paper Scissors
 Wrote a console-based program to play rock paper scissors against a computer player that guesses randomly.
- This project will be updated in the future to incorporate a GUI as I work my way through the Odin Project.
+Then, refactored the code to create a simple GUI that allows the user to select their move by using buttons
+instead of text prompts.

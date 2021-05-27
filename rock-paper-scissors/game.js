@@ -1,6 +1,3 @@
-let moveIsReady = false;
-let move;
-
 function computerPlay(){  // returns the computer's move (lowercase)
     const random = Math.floor(Math.random() * 3);  // random number from 0-2 (inclusive)
     if (random === 0){ return "rock"; }
@@ -26,7 +23,9 @@ function playRound(computerSelection, playerSelection){  // returns a string dec
 
     switch (computerSelection){
         case "rock":
-            if (playerSelection === "paper"){ return 'You win: Paper beats Rock'; }
+            if (playerSelection === "paper"){ 
+                return 'You win: Paper beats Rock'; 
+            }
             else{
                 return 'You lose: Rock beats Scissors';
      }
@@ -52,27 +51,20 @@ function game(){  // plays a five-round game, returning a string declaring the w
     let userWins = 0;
     let computerWins = 0;
 
-    const userScoreTag = document.querySelector('#user-score');
-    const computerScoreTag = document.querySelector('#computer-score');
-    const resultTag = document.querySelector('#result');
-
     while((userWins < 5) && (computerWins < 5)){
         const userMove = userPlay();
         const computerMove = computerPlay();
         const fullResultString = playRound(computerMove, userMove);
-        console.log((result));
+        console.log((fullResultString));
 
 
         const result = fullResultString.split(' ')[1]; // determine who won
         if (result === 'win:'){
             userWins++;
-            userScoreTag.innerHTML = userWins;
         }
         else if (result === 'lose:'){
             computerWins++;
-            computerScoreTag.innerHTML = computerWins;
         }
-        resultTag.innerHTML = fullResultString;
     }
 
     return (userWins > computerWins)? 'user' : 'computer';
