@@ -5,7 +5,7 @@
 # Foundation Projects:
 - [X] Google Homepage
 - [X] Rock Paper Scissors
-- [ ] Etch-a-Sketch
+- [X] Etch-a-Sketch
 - [ ] Calculator
 
 # Full Stack JavaScript Projects:
