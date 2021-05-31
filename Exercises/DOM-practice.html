@@ -1,71 +1,67 @@
 <!-- The DOM -->
 <body>
-    <h1>
-      THE TITLE OF YOUR WEBPAGE
-    </h1>
-    <div id="container">
-        <div class="content">
-        This is the glorious text-content!
-        <button onclick="alert('Hello World')">Click Me</button>
-        <button id="btn">Click Me</button>
-        <button id="btn2">Click Me Too</button>
-      </div>
+  <h1>THE TITLE OF YOUR WEBPAGE</h1>
+  <div id="container">
+    <div class="content">
+      This is the glorious text-content!
+      <button onclick="alert('Hello World')">Click Me</button>
+      <button id="btn">Click Me</button>
+      <button id="btn2">Click Me Too</button>
     </div>
+  </div>
 
-    <script>
-        // Add the following items to the page using JavaScript
-        const content= document.querySelector('.content');
-        const documentBody = document.body;
-        // 1. a <p> with red text that says “Hey I’m red!”
-        const redParagraph = document.createElement('p');
-        redParagraph.textContent = "Hey I'm red!";
-        redParagraph.style.color = 'red';
-        content.appendChild(redParagraph);
-        // 2. an <h3> with blue text that says “I’m a blue h3!”
-        const blueHeader = document.createElement('h3');
-        blueHeader.textContent = "I'm blue h3!";
-        blueHeader.setAttribute('style', 'color: blue;')
-        content.appendChild(blueHeader);
-        // 3. a <div> with a black border and pink background color with the following elements inside of it:
-        const blackPinkDiv = document.createElement('div');
-        blackPinkDiv.style.borderStyle = 'solid';
-        blackPinkDiv.style.borderWidth = '2px';
-        blackPinkDiv.style.borderColor = 'black';
-        blackPinkDiv.style.backgroundColor = 'pink';
-        // 4. another <h1> that says “I’m in a div”
-        const header = document.createElement('h1');
-        header.textContent = "I'm in a div";
-        blackPinkDiv.appendChild(header);
-        // 5. a <p> that says “ME TOO!”
-        const paragraph = document.createElement('p');
-        paragraph.textContent = 'ME TOO!';
-        blackPinkDiv.appendChild(paragraph);
-        //      Hint for this one: after creating the div with createElement, append the <h1> and <p> to it before adding it to the container.
-        document.body.appendChild(blackPinkDiv);
+  <script>
+    // Add the following items to the page using JavaScript
+    const content = document.querySelector(".content");
+    const documentBody = document.body;
+    // 1. a <p> with red text that says “Hey I’m red!”
+    const redParagraph = document.createElement("p");
+    redParagraph.textContent = "Hey I'm red!";
+    redParagraph.style.color = "red";
+    content.appendChild(redParagraph);
+    // 2. an <h3> with blue text that says “I’m a blue h3!”
+    const blueHeader = document.createElement("h3");
+    blueHeader.textContent = "I'm blue h3!";
+    blueHeader.setAttribute("style", "color: blue;");
+    content.appendChild(blueHeader);
+    // 3. a <div> with a black border and pink background color with the following elements inside of it:
+    const blackPinkDiv = document.createElement("div");
+    blackPinkDiv.style.borderStyle = "solid";
+    blackPinkDiv.style.borderWidth = "2px";
+    blackPinkDiv.style.borderColor = "black";
+    blackPinkDiv.style.backgroundColor = "pink";
+    // 4. another <h1> that says “I’m in a div”
+    const header = document.createElement("h1");
+    header.textContent = "I'm in a div";
+    blackPinkDiv.appendChild(header);
+    // 5. a <p> that says “ME TOO!”
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "ME TOO!";
+    blackPinkDiv.appendChild(paragraph);
+    //      Hint for this one: after creating the div with createElement, append the <h1> and <p> to it before adding it to the container.
+    document.body.appendChild(blackPinkDiv);
 
-        // events demo
-        const btn = document.querySelector('#btn');
-        btn.onclick = () => alert("Hello World");
+    // events demo
+    const btn = document.querySelector("#btn");
+    btn.onclick = () => alert("Hello World");
 
-        const btn2 = document.querySelector('#btn2');
-        btn2.addEventListener('click', () => {
-            alert("Hello World");
-        });
-        btn2.addEventListener('click', (e) => {
-        console.log(e.target);
-        e.target.style.background = 'blue';
-        });
+    const btn2 = document.querySelector("#btn2");
+    btn2.addEventListener("click", () => {
+      alert("Hello World");
+    });
+    btn2.addEventListener("click", (e) => {
+      console.log(e.target);
+      e.target.style.background = "blue";
+    });
 
-        // buttons is a node list. It looks and acts much like an array.
-        const buttons = document.querySelectorAll('button');
-        // we use the .forEach method to iterate through each button
-        buttons.forEach((button) => {
-            // and for each one we add a 'click' listener
-            button.addEventListener('click', () => {
-                alert(button.id);
-            });
-        });
-
-        
-    </script>
-  </body>
+    // buttons is a node list. It looks and acts much like an array.
+    const buttons = document.querySelectorAll("button");
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+      // and for each one we add a 'click' listener
+      button.addEventListener("click", () => {
+        alert(button.id);
+      });
+    });
+  </script>
+</body>

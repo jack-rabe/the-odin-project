@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Rock Paper Scissors</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="styles.css" />
+		<script src="gameWithGUI.js"></script>
+	</head>
+
+	<body>
+		<div id="results">
+			<span id="player-score">You: 0</span>
+			<span id="computer-score">Computer: 0</span>
+			<br />
+			<span id="last-game"></span>
+		</div>
+		<div id="button-container">
+			<button id="rock">Rock</button>
+			<button id="paper">Paper</button>
+			<button id="scissors">Scissors</button>
+		</div>
+
+		<script>
+			const buttons = document.querySelectorAll('button');
+			buttons.forEach((button) => {
+				button.addEventListener('click', playRound.bind(this, button.id));
+			});
+		</script>
+	</body>
+</html>

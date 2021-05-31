@@ -1,0 +1,14 @@
+html,
+body {
+	background-color: chocolate;
+	margin: 0;
+	height: 100%;
+}
+
+#calculator {
+	margin: auto; /* center the calculator */
+	width: 35%;
+	height: 70%;
+	text-align: center;
+	background-color: #808080;
+}
