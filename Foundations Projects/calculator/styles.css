@@ -1,14 +1,97 @@
+:root {
+	--stone: #336b87;
+	--mist: #90afc5;
+	--shadow: #2a3132;
+	--shadow-d: #2f3939;
+	--autumn-foliage: #763636;
+	--autumn-foliage-d: #7d3d3d;
+}
+
 html,
 body {
-	background-color: chocolate;
+	background-color: var(--stone);
 	margin: 0;
 	height: 100%;
 }
 
-#calculator {
-	margin: auto; /* center the calculator */
-	width: 35%;
-	height: 70%;
+#title {
 	text-align: center;
-	background-color: #808080;
+	color: var(--shadow);
+	font-family: Georgia, Cochin;
+}
+
+#calculator {
+	width: 30%;
+	height: 70%;
+
+	margin: auto; /* center the calculator */
+	position: relative;
+
+	background-color: var(--mist);
+}
+
+#calculator > #screen {
+	width: 80%;
+	height: 20%;
+
+	background-color: var(--shadow);
+	color: var(--mist);
+
+	margin: auto; /* center the screen */
+	position: absolute;
+	top: 10%;
+	left: 0;
+	right: 0;
+
+	text-align: center;
+	line-height: 110px; /* fix this !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+	white-space: normal;
+	font-size: 35px;
+}
+
+#calculator > #number-buttons {
+	width: 60%;
+	height: 65%;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+
+	position: absolute;
+	top: 40%;
+}
+
+#number-buttons > button {
+	background-color: var(--autumn-foliage);
+	color: var(--mist);
+	border-width: 1px;
+	font-size: 24px;
+}
+
+#number-buttons > button:hover {
+	background-color: var(--autumn-foliage-d);
+}
+
+#calculator > #operate-buttons {
+	width: 40%;
+	height: 65%;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+
+	position: absolute;
+	top: 40%;
+	left: 60%;
+}
+
+#operate-buttons > button {
+	background-color: var(--shadow);
+	color: var(--mist);
+	border-width: 1px;
+	font-size: 24px;
+}
+
+#operate-buttons > button:hover {
+	background-color: var(--shadow-d);
 }
