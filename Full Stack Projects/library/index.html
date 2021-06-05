@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Library</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+	<table id="book-table">
+		<th id="test">Title</th>
+		<th>Author</th>
+		<th>Pages</th>
+		<th>Status</th>
+		<th>Remove</th>
+	</table>
+
+	<form id="book-form" onsubmit="return false;">
+		<!--prevent the page from reloading on form submission-->
+		<label for="title">Title</label>
+		<input type="text" id="title" class="long-input" />
+		<label for="author">Author</label>
+		<input type="text" id="author" class="long-input" />
+		<label for="num-pages">Number of Pages</label>
+		<input type="text" id="num-pages" class="long-input" />
+
+		<label for="read">Read</label>
+		<input type="radio" id="read" name="has-read" />
+		<label for="unread">Not Read</label>
+		<input type="radio" id="unread" name="has-read" checked />
+		<button id="add-btn">Add Book</button>
+	</form>
+
+	<script src="library.js"></script>
+</body>
