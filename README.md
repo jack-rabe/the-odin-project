@@ -4,14 +4,14 @@
 
 # Foundation Projects:
 
-- [x] Google Homepage
+- [x] Google Homepage (update after completing all lessons on HTML and CSS)
 - [x] Rock Paper Scissors
 - [x] Etch-a-Sketch
 - [x] Calculator
 
 # Full Stack JavaScript Projects:
 
-- [ ] Library
+- [x] Library (add Firebase to store data later)
 - [ ] Tic Tac Toe
 - [ ] Restaurant Page
 - [ ] Todo List

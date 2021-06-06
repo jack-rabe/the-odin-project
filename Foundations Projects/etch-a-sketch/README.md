@@ -7,4 +7,4 @@ the grid.
 
 # Demo:
 
-<img src="etch-a-sketch.PNG">
+<img src="../../Images/etch-a-sketch.PNG">
