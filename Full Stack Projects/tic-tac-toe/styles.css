@@ -1,0 +1,81 @@
+:root {
+	--tea-green: #def2c8;
+	--darker-green: #c5dac1;
+	--opal: #bcd0c7;
+	--ash-gray: #a9b2ac;
+	--middle-gray: #898980;
+}
+
+html,
+body {
+	background-color: var(--tea-green);
+	margin: 0;
+	height: 100%;
+
+	font-family: 'Gloria Hallelujah', cursive;
+	color: var(--middle-gray);
+}
+
+#header-div {
+	background-color: var(--opal);
+}
+
+h1 {
+	text-align: center;
+	font-size: 40px;
+
+	background-color: var(--opal);
+	margin: 0px 0px 25px 0px;
+	padding-bottom: 5px;
+}
+
+#board {
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	gap: 5px;
+
+	justify-content: center;
+	margin: 0 auto;
+
+	width: 375px;
+	height: 375px;
+
+	background-color: var(--ash-gray);
+}
+
+#board > .grid-square {
+	text-justify: center;
+	text-align: center;
+
+	font-size: 60px;
+	background-color: var(--darker-green);
+}
+
+#turns {
+	text-align: center;
+	font-size: 32px;
+
+	margin: 30px 0px;
+}
+
+#restart-btn {
+	display: block;
+	margin: 0px auto;
+
+	font-size: 30px;
+	font-family: 'Gloria Hallelujah', cursive;
+	background-color: var(--opal);
+	color: var(--middle-gray);
+
+	padding: 3px 15px;
+	border-width: 2px;
+	border-color: var(--darker-green);
+	border-radius: 10px;
+}
+
+#restart-btn:hover {
+	background-color: var(--ash-gray);
+	color: var(--tea-green);
+	transform: scale(1.1);
+}
