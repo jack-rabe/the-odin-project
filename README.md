@@ -12,8 +12,8 @@
 # Full Stack JavaScript Projects:
 
 - [x] Library (add Firebase to store data later)
-- [ ] Tic Tac Toe
-- [ ] Restaurant Page
+- [x] Tic Tac Toe
+- [x] Restaurant Page
 - [ ] Todo List
 - [ ] Weather App
 - [ ] CV Application
