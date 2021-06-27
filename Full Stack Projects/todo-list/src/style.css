@@ -62,6 +62,10 @@ ul {
 	color: violet;
 }
 
+.selected {
+	border: 4px dashed violet;
+}
+
 .project:hover,
 #add-project-button:hover {
 	background-color: var(--dark-gray);

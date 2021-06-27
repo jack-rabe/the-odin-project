@@ -19,20 +19,31 @@ export function createProject(title) {
 	return newProject;
 }
 
-// creates and returns a new todo object
-export function createTodo(title, description, dueDate, priority) {
-	return { title, description, dueDate, priority };
+// creates a new todo, adds it to a specified project, and returns it
+export function createTodo(project, title, dueDate) {
+	const newTodo = { title, dueDate };
+	project.addTodo(newTodo);
+	return newTodo;
 }
 
 // adds default projects and todos to the page to demonstrate how the page should initially look to users
 export function initializePage() {
 	const exampleProject = createProject('Example Project');
 	const exampleToDos = [
-		createTodo('Garbage', 'Take out the garbage', 'Tuesday', 'low'),
-		createTodo('Brush teeth', 'Monday', 'high'),
-		createTodo('Workout', 'Go for a ten mile run', 'Wednesday', 'medium'),
+		createTodo(exampleProject, 'Garbage', 'Tuesday'),
+		createTodo(exampleProject, 'Brush teeth', 'Monday'),
+		createTodo(exampleProject, 'Workout', 'Wednesday'),
 	];
-	exampleToDos.forEach((todo) => {
-		exampleProject.addTodo(todo);
+}
+
+export function getProject(title) {
+	projects.forEach((p) => {
+		if (p.title == title) {
+			return p;
+		} else {
+			console.log(title);
+			console.log(p.title);
+		}
 	});
+	return null;
 }
