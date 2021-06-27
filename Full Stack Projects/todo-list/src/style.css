@@ -1,0 +1,109 @@
+:root {
+	--dark-gray: rgb(35, 35, 35);
+}
+
+html,
+body {
+	color: violet;
+	background-color: black;
+	font-family: tangerine;
+	font-size: 44px;
+	text-align: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	background-color: var(--dark-gray);
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	font-size: 28px;
+	background-color: var(--dark-gray);
+
+	padding: 5px 0px;
+}
+
+ul {
+	/* remove the bullets from list items */
+	list-style-type: none;
+}
+
+#projects-list {
+	font-size: 32px;
+	padding: 10px;
+	margin: 5px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+#projects-navbar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	padding: 15px;
+
+	background-color: white;
+	color: black;
+}
+
+.project {
+	border: 1px solid;
+	padding: 4px 8px;
+	margin: 5px;
+	border-radius: 5px;
+
+	background-color: black;
+	color: violet;
+}
+
+.project:hover,
+#add-project-button:hover {
+	background-color: var(--dark-gray);
+	transform: scale(1.05);
+}
+
+#add-project-button {
+	background-color: black;
+	color: white;
+	border: 1px solid violet;
+	border-radius: 5px;
+
+	font-size: 32px;
+	font-family: tangerine;
+}
+
+input {
+	background-color: black;
+	color: violet;
+	width: auto;
+	font-size: 28px;
+	font-family: tangerine;
+	border-radius: 5px;
+}
+
+.finalize-decline-buttons {
+	/* alters the buttons that appear after clicking the add project button */
+	color: white;
+	font-size: 35%;
+	font-weight: bold;
+
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 0px 5px;
+}
+
+.finalize-decline-buttons:hover {
+	transform: scale(1.05);
+}
+
+#content {
+	position: relative; /* allows the navbar to be positioned absolutely to the left */
+	width: 100%;
+	height: 75%;
+}
