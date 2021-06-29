@@ -29,21 +29,19 @@ export function createTodo(project, title, dueDate) {
 // adds default projects and todos to the page to demonstrate how the page should initially look to users
 export function initializePage() {
 	const exampleProject = createProject('Example Project');
-	const exampleToDos = [
-		createTodo(exampleProject, 'Garbage', 'Tuesday'),
-		createTodo(exampleProject, 'Brush teeth', 'Monday'),
-		createTodo(exampleProject, 'Workout', 'Wednesday'),
-	];
+	createTodo(exampleProject, 'Garbage', 'Tuesday');
+	createTodo(exampleProject, 'Brush teeth', 'Monday');
+	createTodo(exampleProject, 'Workout', 'Wednesday');
 }
 
+// return a project object for a give title
 export function getProject(title) {
-	projects.forEach((p) => {
-		if (p.title == title) {
-			return p;
-		} else {
-			console.log(title);
-			console.log(p.title);
+	for (let i = 0; i < projects.length; i++) {
+		const curProject = projects[i];
+		if (curProject.title == title) {
+			return curProject;
 		}
-	});
+	}
+	console.error('No project found!');
 	return null;
 }

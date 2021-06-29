@@ -66,7 +66,7 @@ addTodoButton.addEventListener('click', () => {
 	const finalizeTodoButton = document.createElement('button');
 	finalizeTodoButton.classList.add('finalize-decline-buttons');
 	finalizeTodoButton.textContent = 'Add';
-	finalizeTodoButton.style.backgroundColor = 'green';
+	finalizeTodoButton.style.backgroundColor = 'violet';
 	finalizeTodoButton.addEventListener('click', (e) => {
 		// split the data into the task and the date itself
 		const data = todoInput.value.split(' ');
@@ -107,10 +107,10 @@ export function renderProjects() {
 			projectTag.classList.add('selected');
 		});
 	});
-	// display the first project by default
+	// display the last added project by default
 	if (projects) {
-		renderTodos(projects[0]);
-		projectsList.firstChild.classList.add('selected');
+		renderTodos(projects[projects.length - 1]);
+		projectsList.lastChild.classList.add('selected');
 	}
 }
 

@@ -63,6 +63,7 @@ ul {
 }
 
 .selected {
+	/* denotes the currently selected project from which the todos are displayed */
 	border: 4px dashed violet;
 }
 
@@ -72,7 +73,8 @@ ul {
 	transform: scale(1.05);
 }
 
-#add-project-button {
+#add-project-button,
+#add-todo-button {
 	background-color: black;
 	color: white;
 	border: 1px solid violet;
