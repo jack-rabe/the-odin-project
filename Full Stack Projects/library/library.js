@@ -1,5 +1,3 @@
-let myLibrary = [];
-
 class Book {
 	constructor(title, author, numPages, haveRead) {
 		this.title = title;
@@ -8,6 +6,14 @@ class Book {
 		this.haveRead = haveRead ? 'Read' : 'Not Read';
 	}
 }
+
+// returns the key stored in session storage for a given book
+function getBookKey(book) {
+	return `Book: ${book.title}`;
+}
+
+const myLibrary = [];
+const storage = window.sessionStorage;
 
 function addBookToLibrary(book) {
 	// check that the user has entered all of the necessary info
@@ -27,6 +33,7 @@ function addBookToLibrary(book) {
 	}
 
 	myLibrary.push(book);
+	storage.setItem(`Book: ${book.title}`, JSON.stringify(book));
 	displayAllBooks();
 }
 
@@ -69,11 +76,15 @@ function displayAllBooks() {
 }
 
 function switchStatus(book) {
-	book.haveRead = book.haveRead === 'Read' ? 'Not Read' : 'Read';
+	const curStatus = book.haveRead;
+	book.haveRead = curStatus === 'Read' ? 'Not Read' : 'Read';
+	storage.setItem(getBookKey(book), JSON.stringify(book));
 	displayAllBooks();
 }
 
 function removeBook(bookIdx) {
+	const book = myLibrary[bookIdx];
+	delete storage[getBookKey(book)];
 	myLibrary.splice(bookIdx, 1);
 	displayAllBooks();
 }
@@ -110,16 +121,31 @@ addBtn.addEventListener('click', (e) => {
 	}
 });
 
-// add several book to the library at the beginning
-const harryPotter = new Book(
-	'Harry Potter and the Order of the Phoenix',
-	'J.K Rowling',
-	870,
-	true
-);
-const artemisFowl = new Book('Artemis Fowl', 'Eoin Colfer', 280, true);
-const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
-addBookToLibrary(harryPotter);
-addBookToLibrary(artemisFowl);
-addBookToLibrary(theHobbit);
-displayAllBooks();
+// loads books already in storage, (by default session storage has one value with live server)
+if (storage.length > 1) {
+	for (let book in storage) {
+		if (book.substring(0, 4) === 'Book')
+			myLibrary.push(JSON.parse(storage[book]));
+	}
+	displayAllBooks();
+}
+// add several default books to the library when the page first loads
+else if (storage.length === 1) {
+	(() => {
+		// add several book to the library at the beginning
+		const harryPotter = new Book(
+			'Harry Potter and the Order of the Phoenix',
+			'J.K Rowling',
+			870,
+			true
+		);
+		const artemisFowl = new Book('Artemis Fowl', 'Eoin Colfer', 280, true);
+		const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
+		addBookToLibrary(harryPotter);
+		addBookToLibrary(artemisFowl);
+		addBookToLibrary(theHobbit);
+		displayAllBooks();
+	})();
+}
+
+// make sure all three books aren't added right away each time the page is reloaded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -14,7 +14,7 @@
 - [x] Library (add Firebase to store data later)
 - [x] Tic Tac Toe
 - [x] Restaurant Page
-- [ ] Todo List
+- [x] Todo List
 - [ ] Weather App
 - [ ] CV Application
 - [ ] Memory Card
