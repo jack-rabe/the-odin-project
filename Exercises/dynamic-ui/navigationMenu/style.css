@@ -1,0 +1,30 @@
+button {
+	/* make it a circle */
+	border-radius: 50%;
+	height: 75px;
+	width: 75px;
+
+	background-color: blue;
+	color: orange;
+	border: 3px dashed orange;
+
+	font-weight: bold;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+
+	transition: transform 1.25s ease-out 0.1s;
+}
+
+.trigger:hover button {
+	border-color: yellow;
+	color: yellow;
+
+	transform: scale(1.2) translate(40px, 40px);
+}
+
+.trigger {
+	width: 75px;
+}
+
+.under {
+	display: none;
+}

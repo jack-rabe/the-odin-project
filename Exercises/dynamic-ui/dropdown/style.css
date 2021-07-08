@@ -1,0 +1,12 @@
+.hidden {
+	display: none;
+}
+
+.under {
+	color: blue;
+	display: block;
+	width: 100%;
+}
+
+#top-button {
+}
