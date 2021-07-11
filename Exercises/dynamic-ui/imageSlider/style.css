@@ -1,0 +1,57 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+	background-color: beige;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#frame {
+	border: 3px solid black;
+	background-color: whitesmoke;
+
+	margin-bottom: 100px;
+	overflow: hidden;
+}
+
+#current-picture {
+	width: 350px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#navigation > button {
+	margin: 0px 50px;
+
+	font-size: 24px;
+	padding: 4px 15px;
+	background-color: pink;
+	border-radius: 3px;
+	border: 2px red dashed;
+}
+
+img {
+	max-height: 90%;
+	max-width: 90%;
+	transition: transform 5s;
+	transform: none;
+}
+
+.dot {
+	display: inline-block;
+	margin: 0px 5px;
+	background-color: red;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.previous-image {
+	transform: translateX(-300px);
+}
