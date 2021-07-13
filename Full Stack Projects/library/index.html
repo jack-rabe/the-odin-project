@@ -14,14 +14,13 @@
 		<th>Remove</th>
 	</table>
 
-	<form id="book-form" onsubmit="return false;">
-		<!--prevent the page from reloading on form submission-->
+	<form id="book-form">
 		<label for="title">Title</label>
-		<input type="text" id="title" class="long-input" />
+		<input type="text" id="title" class="long-input" required />
 		<label for="author">Author</label>
-		<input type="text" id="author" class="long-input" />
-		<label for="num-pages">Number of Pages</label>
-		<input type="text" id="num-pages" class="long-input" />
+		<input type="text" id="author" class="long-input" minlength="4" required />
+		<label for="num-pages" min="1">Number of Pages</label>
+		<input type="number" id="num-pages" class="long-input" required />
 
 		<label for="read">Read</label>
 		<input type="radio" id="read" name="has-read" />

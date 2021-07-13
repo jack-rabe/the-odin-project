@@ -78,9 +78,14 @@ td {
 .long-input {
 	display: block; /* make elements appear on new lines */
 	width: 85%;
+	border: 3px solid var(--purple);
 
 	border-radius: 5px;
 	background-color: var(--teal);
+}
+
+.long-input:invalid {
+	border: 3px dashed red;
 }
 
 input {

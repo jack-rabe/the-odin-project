@@ -16,22 +16,6 @@ const myLibrary = [];
 const storage = window.sessionStorage;
 
 function addBookToLibrary(book) {
-	// check that the user has entered all of the necessary info
-	if (!book.title || !isNaN(+book.title)) {
-		alert('Please enter a title.');
-		return;
-	} else if (!book.author || !isNaN(+book.author)) {
-		alert('Please enter an author.');
-		return;
-	} else if (
-		isNaN(+book.numPages) ||
-		+book.numPages <= 0 ||
-		+book.numPages % 1 !== 0
-	) {
-		alert('Please enter a positive number.');
-		return;
-	}
-
 	myLibrary.push(book);
 	storage.setItem(`Book: ${book.title}`, JSON.stringify(book));
 	displayAllBooks();
@@ -102,8 +86,8 @@ function removeTableData(node) {
 }
 
 // adds logic to the "Add Book" button to allow the user to add more books
-const addBtn = document.querySelector('#add-btn');
-addBtn.addEventListener('click', (e) => {
+const form = document.querySelector('#book-form');
+form.addEventListener('submit', (e) => {
 	// check if the user has read the book
 	const readBtn = document.querySelector('#read');
 	const isRead = readBtn.checked ? true : false;
@@ -112,25 +96,20 @@ addBtn.addEventListener('click', (e) => {
 	input = input.map((element) => element.value);
 	// create the new Book and add to the library if it is valid
 	const newBook = new Book(...input, isRead);
-	const initialLength = myLibrary.length;
 	addBookToLibrary(newBook);
-	// if book is added, reset the form so more books can be added
-	if (myLibrary.length > initialLength) {
-		const form = document.querySelector('#book-form');
-		form.reset();
-	}
 });
 
 // loads books already in storage, (by default session storage has one value with live server)
 if (storage.length > 1) {
 	for (let book in storage) {
-		if (book.substring(0, 4) === 'Book')
+		if (book.substring(0, 4) === 'Book') {
 			myLibrary.push(JSON.parse(storage[book]));
+		}
 	}
 	displayAllBooks();
 }
 // add several default books to the library when the page first loads
-else if (storage.length === 1) {
+else if (storage.length <= 1) {
 	(() => {
 		// add several book to the library at the beginning
 		const harryPotter = new Book(
@@ -147,5 +126,3 @@ else if (storage.length === 1) {
 		displayAllBooks();
 	})();
 }
-
-// make sure all three books aren't added right away each time the page is reloaded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
