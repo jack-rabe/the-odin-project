@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<title>Form Practice</title>
+	</head>
+
+	<body>
+		<form id="form">
+			<label for="email">Email Address</label>
+			<input type="email" name="email" required />
+			<label for="country">Country:</label>
+			<input type="text" name="country" id="country" required />
+			<label for="zip">Zip Code:</label>
+			<input type="text" name="zip" pattern="[0-9]{5}" required />
+			<label for="password">Password:</label>
+			<input type="text" name="password" id="password" required />
+			<label for="password-confirmation">Password Confirmation:</label>
+			<input
+				type="text"
+				name="password-confirmation"
+				id="password-confirmation"
+				required
+			/>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+
+	<script src="index.js"></script>
+</html>
