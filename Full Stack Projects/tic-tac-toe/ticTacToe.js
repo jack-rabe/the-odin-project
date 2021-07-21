@@ -65,7 +65,7 @@ function createPlayer(isTurn, marker) {
 	}
 
 	function initializeName(playerNum) {
-		this.name = prompt(`Please enter the name of ${playerNum}.`);
+		this.name = prompt(`Please enter the name of Player ${playerNum}.`);
 	}
 
 	return { isTurn, marker, tryMove, initializeName };

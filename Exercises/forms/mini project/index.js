@@ -19,6 +19,13 @@ form.addEventListener('submit', (e) => {
 	const password = passwordTag.value;
 	const passwordConfirmation = passwordConfirmationTag.value;
 	const uppercaseRegex = /[A-Z]/;
+
+	const jack = 'jasdfklkfsd';
+
+	for (let i = 0; i < 3; i++) {
+		console.log('hi');
+	}
+
 	const lowercaseRegex = /[a-z]/;
 	const numberRegex = /[1-9]/;
 

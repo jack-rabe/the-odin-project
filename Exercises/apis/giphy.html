@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Giphy API Tester</title>
+	</head>
+	<body>
+		<img src="#" alt="giphy image" />
+		<br />
+		<p>Powered by Giphy</p>
+		<br />
+		<button id="newImageButton">New Image</button>
+		<br />
+		<br />
+		<label for="search-bar">Search:</label>
+		<input type="text" name="search-bar" />
+
+		<script type="module">
+			import apiKey from './apiKey.js';
+			fetchImage('cats');
+
+			function fetchImage(searchTerm) {
+				const img = document.querySelector('img');
+				fetch(
+					`https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=` +
+						searchTerm,
+					{ mode: 'cors' }
+				)
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (response) {
+						img.src = response.data.images.original.url;
+					})
+					.catch((response) => {
+						console.log('sorry, there are no images that match' + searchTerm);
+					});
+			}
+
+			// generate a new gif when the button is clicked corresponding to the current input value
+			const newImageButton = document.querySelector('#newImageButton');
+			newImageButton.onclick = () => {
+				const inputBox = document.querySelector('input');
+				fetchImage(inputBox.value);
+			};
+		</script>
+	</body>
+</html>
