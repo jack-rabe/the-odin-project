@@ -17,26 +17,23 @@
 
 		<script type="module">
 			import apiKey from './apiKey.js';
-			fetchImage('cats');
-
-			function fetchImage(searchTerm) {
-				const img = document.querySelector('img');
-				fetch(
-					`https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=` +
-						searchTerm,
-					{ mode: 'cors' }
-				)
-					.then(function (response) {
-						return response.json();
-					})
-					.then(function (response) {
-						img.src = response.data.images.original.url;
-					})
-					.catch((response) => {
-						console.log('sorry, there are no images that match' + searchTerm);
-					});
+			async function fetchImage(searchTerm) {
+				try {
+					const img = document.querySelector('img');
+					let response = await fetch(
+						`https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=` +
+							searchTerm,
+						{ mode: 'cors' }
+					);
+					response = await response.json();
+					img.src = response.data.images.original.url;
+				} catch (errror) {
+					alert('sorry, there are no images that match' + searchTerm);
+				}
 			}
 
+			// load a cat gif when the page is first loaded
+			fetchImage('cats');
 			// generate a new gif when the button is clicked corresponding to the current input value
 			const newImageButton = document.querySelector('#newImageButton');
 			newImageButton.onclick = () => {
