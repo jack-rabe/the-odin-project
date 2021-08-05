@@ -16,7 +16,16 @@ async function getCurrentWeather(cityName, units) {
 	return { temp, high, low, humidity, windSpeed, cloudDescription };
 }
 
-//async function get
+async function getForecast(cityName, units) {
+	let response = await fetch(
+		`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=${units}&appid=${apiKey}`
+	);
+	response = await response.json();
+
+	console.log(response);
+}
+
+getForecast('Columbus', 'imperial');
 
 const a = async () => {
 	const currentWeather = await getCurrentWeather('Columbus', 'imperial');
@@ -24,7 +33,7 @@ const a = async () => {
 	const tags = document.querySelectorAll('p');
 	for (const tag of tags) {
 		tag.textContent += currentWeather[tag.id];
-		console.log(currentWeather);
 	}
 };
+
 a();
