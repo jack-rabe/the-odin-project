@@ -2,16 +2,26 @@
 <html lang="en">
 	<head>
 		<title>Weather App</title>
-		<script src="bundle.js"></script>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 
 	<body>
-		<p id="temp">Temperature:</p>
-		<p id="high">High:</p>
-		<p id="low">Low:</p>
-		<p id="humidity">Humidity:</p>
-		<p id="windSpeed">Wind Speed:</p>
-		<p id="cloudDescription">Description:</p>
+		<form>
+			<label for="location">Current Location:</label>
+			<input type="text" placeholder="New York City" id="cityInput" />
+		</form>
+		<div id="currentWeatherContainer">
+			<h3>Current Weather</h3>
+			<p id="temp">Temperature:</p>
+			<p id="high">High:</p>
+			<p id="low">Low:</p>
+			<p id="humidity">Humidity:</p>
+			<p id="windSpeed">Wind Speed:</p>
+			<p id="cloudDescription">Description:</p>
+		</div>
+		<div id="forecastContainer">
+			<h3>Five Day Forecast</h3>
+		</div>
+		<script src="bundle.js"></script>
 	</body>
 </html>

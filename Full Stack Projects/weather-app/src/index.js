@@ -27,13 +27,18 @@ async function getForecast(cityName, units) {
 
 getForecast('Columbus', 'imperial');
 
-const a = async () => {
-	const currentWeather = await getCurrentWeather('Columbus', 'imperial');
+async function displayCurrentWeather(city, units) {
+	const currentWeather = await getCurrentWeather(city, units);
+	console.log(currentWeather);
 
 	const tags = document.querySelectorAll('p');
 	for (const tag of tags) {
 		tag.textContent += currentWeather[tag.id];
 	}
-};
+}
 
-a();
+const cityInput = document.getElementById('cityInput');
+console.log(cityInput);
+cityInput.onchange = () => {
+	displayCurrentWeather(cityInput.value, 'imperial');
+};
