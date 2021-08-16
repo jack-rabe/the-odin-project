@@ -1,0 +1,2 @@
+{ "presets": ["@babel/preset-env"] }
+// allows jest to use dynamic imports

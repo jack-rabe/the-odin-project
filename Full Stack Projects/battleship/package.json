@@ -1,0 +1,17 @@
+{
+	"name": "battleship",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/preset-env": "^7.15.0",
+		"jest": "^27.0.6",
+		"webpack": "^5.49.0",
+		"webpack-cli": "^4.7.2"
+	}
+}
