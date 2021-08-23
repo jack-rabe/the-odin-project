@@ -6,6 +6,17 @@ const getCoordinates = (idx) => {
 	return { xPos, yPos };
 };
 
+const calculateShipTilesIdxs = (length, startingPos, posChange) => {
+	// calculate the position that the tiles of the new ship will be on
+	const newTilesIdxs = [];
+	length--;
+	while (length > -1) {
+		newTilesIdxs.push(startingPos + length * posChange);
+		length--;
+	}
+	return newTilesIdxs;
+};
+
 const allShipsSunk = (tiles) => {
 	for (const row of tiles) {
 		for (const tile of row) {
@@ -17,7 +28,7 @@ const allShipsSunk = (tiles) => {
 	return true;
 };
 
-function createBoard() {
+export default function createBoard() {
 	// create the 2-D array representation of the board
 	const tiles = [];
 	for (let i = 0; i < 10; i++) {
@@ -53,17 +64,6 @@ function createBoard() {
 		}
 	}
 
-	function calculateShipTilesIdxs(length, startingPos, posChange) {
-		// calculate the position that the tiles of the new ship will be on
-		const newTilesIdxs = [];
-		length--;
-		while (length > -1) {
-			newTilesIdxs.push(startingPos + length * posChange);
-			length--;
-		}
-		return newTilesIdxs;
-	}
-
 	return {
 		tiles,
 		placeShip: (length, startingPos, posChange) => {
@@ -86,7 +86,7 @@ function createBoard() {
 			}
 			const { xPos, yPos } = getCoordinates(idx);
 			const possibleShip = tiles[yPos][xPos];
-			// do i need to handle the ship already being hit in this position/ being sunk
+
 			if (possibleShip === 'missed' || possibleShip === 'hit') {
 				throw new Error(
 					`The tile at row ${yPos} column ${xPos} was already guessed!`
@@ -101,5 +101,3 @@ function createBoard() {
 		allShipsSunk: allShipsSunk.bind(null, tiles),
 	};
 }
-
-module.exports = createBoard;

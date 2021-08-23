@@ -1,4 +1,4 @@
-function createShip(length, startingPos, posChange) {
+export default function createShip(length, startingPos, posChange) {
 	// add all grid numbers the ship occupies to an array
 	const endingPos = startingPos + posChange * length;
 	const tiles = [];
@@ -20,5 +20,3 @@ function createShip(length, startingPos, posChange) {
 		},
 	};
 }
-
-module.exports = createShip;
