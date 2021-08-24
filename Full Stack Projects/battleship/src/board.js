@@ -101,3 +101,10 @@ export default function createBoard() {
 		allShipsSunk: allShipsSunk.bind(null, tiles),
 	};
 }
+
+export function getSymbolAtIdx(idx, board) {
+	const { xPos, yPos } = getCoordinates(idx);
+	// for some reason row needs to be converted into an Array
+	const row = Array.from(board.tiles[yPos]);
+	return row[xPos];
+}
