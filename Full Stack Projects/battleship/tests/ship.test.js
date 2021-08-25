@@ -7,6 +7,16 @@ describe('test ship factory function', () => {
 		expect(ship.length).toEqual(length);
 		expect(ship.isSunk()).toEqual(false);
 		expect(ship.hit).toBeDefined();
+		expect(ship.type).toEqual('Carrier');
+	});
+	test('ship is assigned the correct type', () => {
+		const lengthValues = [2, 3, 4, 5];
+		const nameValues = ['Destroyer', 'Submarine', 'Battleship', 'Carrier'];
+		let ship;
+		for (let i = 0; i < lengthValues.length; i++) {
+			ship = createShip(lengthValues[i], 0, 1);
+			expect(ship.type).toEqual(nameValues[i]);
+		}
 	});
 	test('ship of length one sinks after a single hit', () => {
 		const ship = createShip(1, 0, 1);

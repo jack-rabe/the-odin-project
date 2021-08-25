@@ -17,23 +17,14 @@ const calculateShipTilesIdxs = (length, startingPos, posChange) => {
 	return newTilesIdxs;
 };
 
-const allShipsSunk = (tiles) => {
-	for (const row of tiles) {
-		for (const tile of row) {
-			if (tile && tile.hasOwnProperty('hit') && tile.hasOwnProperty('isSunk')) {
-				return false;
-			}
-		}
-	}
-	return true;
-};
-
 export default function createBoard() {
 	// create the 2-D array representation of the board
 	const tiles = [];
 	for (let i = 0; i < 10; i++) {
 		tiles.push(new Array(10));
 	}
+	// store all of the ships placed on the board
+	const ships = [];
 
 	function checkValidPlacement(length, startingPos, posChange) {
 		if (length > 5) {
@@ -66,9 +57,12 @@ export default function createBoard() {
 
 	return {
 		tiles,
+		ships,
 		placeShip: (length, startingPos, posChange) => {
+			// verify that the ship is valid
 			checkValidPlacement(length, startingPos, posChange);
 			const ship = createShip(length, startingPos, posChange);
+			// place the ship on each of the tiles on the board
 			const shipTilesIdxs = calculateShipTilesIdxs(
 				length,
 				startingPos,
@@ -78,6 +72,8 @@ export default function createBoard() {
 				const { xPos, yPos } = getCoordinates(idx);
 				tiles[yPos][xPos] = ship;
 			});
+			// add the ship to the array of ships stored in the board
+			ships.push(ship);
 			return ship;
 		},
 		receiveAttack: (idx) => {
@@ -86,19 +82,32 @@ export default function createBoard() {
 			}
 			const { xPos, yPos } = getCoordinates(idx);
 			const possibleShip = tiles[yPos][xPos];
+			console.log(possibleShip);
 
 			if (possibleShip === 'missed' || possibleShip === 'hit') {
 				throw new Error(
 					`The tile at row ${yPos} column ${xPos} was already guessed!`
 				);
+				// handles the ship being hit and possibly sunk
 			} else if (possibleShip) {
 				possibleShip.hit(idx);
+				if (possibleShip.isSunk()) {
+					console.log('ship is sunk');
+				}
 				tiles[yPos][xPos] = 'hit';
+				// handles a missed attack
 			} else {
 				tiles[yPos][xPos] = 'missed';
 			}
 		},
-		allShipsSunk: allShipsSunk.bind(null, tiles),
+		allShipsSunk: () => {
+			for (const ship of ships) {
+				if (!ship.isSunk()) {
+					return false;
+				}
+			}
+			return true;
+		},
 	};
 }
 
@@ -108,3 +117,5 @@ export function getSymbolAtIdx(idx, board) {
 	const row = Array.from(board.tiles[yPos]);
 	return row[xPos];
 }
+
+// add an array of the ships to the board to keep track of when one is completely sunk??????????????????????????????????????????????????????????????????????????????

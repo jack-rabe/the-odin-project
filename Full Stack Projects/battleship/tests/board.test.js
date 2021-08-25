@@ -8,11 +8,16 @@ describe('test valid ship placements on the board', () => {
 			expect(board.tiles[i].length).toEqual(10);
 		}
 	});
+	test('empty board contains no ships', () => {
+		const board = createBoard();
+		expect(board.ships).toEqual([]);
+	});
 	test('ship can be placed at a given position', () => {
 		const board = createBoard();
 		const ship = board.placeShip(2, 0, 1);
 		expect(board.tiles[0][0]).toEqual(ship);
 		expect(board.tiles[0][1]).toEqual(ship);
+		expect(board.ships).toContain(ship);
 	});
 	test('no errors are thrown when ships are placed in valid positions', () => {
 		function createGoodShip(startIdx, posChange) {
