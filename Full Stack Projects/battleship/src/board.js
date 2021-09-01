@@ -20,6 +20,8 @@ const calculateShipTilesIdxs = (length, startingPos, posChange) => {
 export default function createBoard() {
 	// create the 2-D array representation of the board
 	const tiles = [];
+	// store the DOM elements for each tile
+	const tileElements = [];
 	for (let i = 0; i < 10; i++) {
 		tiles.push(new Array(10));
 	}
@@ -57,6 +59,7 @@ export default function createBoard() {
 
 	return {
 		tiles,
+		tileElements,
 		ships,
 		placeShip: (length, startingPos, posChange) => {
 			// verify that the ship is valid
@@ -71,9 +74,14 @@ export default function createBoard() {
 			shipTilesIdxs.forEach((idx) => {
 				const { xPos, yPos } = getCoordinates(idx);
 				tiles[yPos][xPos] = ship;
+				// update display
+				const element = tileElements[idx];
+				element.classList.add('ship');
+				element.textContent = ship.type;
 			});
 			// add the ship to the array of ships stored in the board
 			ships.push(ship);
+
 			return ship;
 		},
 		receiveAttack: (idx) => {
@@ -82,7 +90,6 @@ export default function createBoard() {
 			}
 			const { xPos, yPos } = getCoordinates(idx);
 			const possibleShip = tiles[yPos][xPos];
-			console.log(possibleShip);
 
 			if (possibleShip === 'missed' || possibleShip === 'hit') {
 				throw new Error(
@@ -99,6 +106,10 @@ export default function createBoard() {
 			} else {
 				tiles[yPos][xPos] = 'missed';
 			}
+
+			// update display
+			const shipState = tiles[yPos][xPos];
+			tileElements[idx].classList.add(shipState);
 		},
 		allShipsSunk: () => {
 			for (const ship of ships) {

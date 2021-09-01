@@ -13,6 +13,7 @@ function createPlayer(number, board, enemyBoard) {
 	return {
 		number,
 		board,
+		boardElements: [],
 		enemyBoard,
 		attack: (idx) => {
 			enemyBoard.receiveAttack(idx);
